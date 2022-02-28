@@ -1,25 +1,34 @@
 <?php
-//include 'db.php';
+include 'db.php';
 
 $uip = getUserIpAddr();
 $dog = filter_var($_POST['dog'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 $cat = filter_var($_POST['cat'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 $hash_cat = password_hash($cat, PASSWORD_DEFAULT);
-$verify_cat = password_verify($cat, $hash_cat);
-/* $user_sql = "SELECT user FROM users where user LIKE '". $dog ."'";
-$pass_sql = "SELECT pass FROM users where pass LIKE '". $cat ."'";
+$user_sql = "SELECT user FROM users where user LIKE '". $dog ."'";
+$pass_sql = "SELECT pass FROM users where user LIKE '". $dog ."'";
 $rus = mysqli_query($conn, $user_sql);
-$rps = mysqli_query($conn, $pass_sql); */
+$rps = mysqli_query($conn, $pass_sql);
 
-if ($verify_cat) {
-    echo json_encode(array('x'=>$hash_cat, 'ip'=>$uip));
-}
-else {
-    echo json_encode(array('x'=>"will never happened, like never. this is not supposed to work", 'ip'=>$uip));
-}
-//json($dog,$hash_cat,$uip);
+if ($rus->num_rows > 0) {
+    echo "** found user **";
+    while($row = $rps->fetch_assoc()) {
+        $oof = password_verify($cat, $row["pass"]);
+        if ($oof)
+        {
+            jsonLogin("oof","moof","1234");
+        }
+        else
+        {
+            echo "*****  nope";
+        }
+    }
+  } else {
+    echo "no result :(";
+  }
+  $conn->close();
 
-function json($x, $y, $ip)
+function jsonLogin($x, $y, $ip)
 {
     header("Content-type: application/json");
     echo json_encode(array('x'=>$x, 'y'=>$y, 'ip'=>$ip));
