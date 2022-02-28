@@ -13,6 +13,12 @@
     <script src="./api/mmn.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script>     
+    if (document.cookie)
+        {
+            window.location = 'api/client.php';
+        }
+    </script>
 </head>
 
 <body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url('assets/img/bg.jpg');">
@@ -23,8 +29,8 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">produits</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://nop.lepainbleu.ca">boutique</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://boutique.lepainbleu.ca">boutique</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">espace client</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">à propos</a></li>
                 </ul>
             </div>

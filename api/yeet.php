@@ -11,16 +11,16 @@ $rus = mysqli_query($conn, $user_sql);
 $rps = mysqli_query($conn, $pass_sql);
 
 if ($rus->num_rows > 0) {
-    echo "** found user **";
     while($row = $rps->fetch_assoc()) {
         $oof = password_verify($cat, $row["pass"]);
         if ($oof)
         {
-            jsonLogin("oof","moof","1234");
+            setcookie("user", $dog, time() + (86400 * 30), "/");
+            setcookie("pass", $row["pass"], time() + (86400 * 30), "/");
+            echo "redirect";
         }
         else
         {
-            echo "*****  nope";
         }
     }
   } else {

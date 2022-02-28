@@ -8,11 +8,10 @@ function chkLogin(woof, miaw) {
     document.getElementById("nomd").value = "";
     document.getElementById("mdp").value = "";
 
-    if (typeof data.x === "string")
+    if (data == "redirect" || document.cookie)
 {
-    document.getElementById("oof").innerHTML = data.x;
+    window.location = 'api/client.php';
 }
-
 });
 }
 
