@@ -1,0 +1,4 @@
+admin:password123
+woof:miaw
+ez:clap
+slayer:rainingblood

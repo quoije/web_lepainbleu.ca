@@ -1,11 +1,11 @@
 <?php
 
-$servername = "127.0.0.1";
+$servername = "database";
 $username = "admin";
-$password = "Lepainbleu123!";
+$password = "l[k8]ww(/mwHfO.*";
 $dbname = "web";
 
-$conn = new mysqli($servername,$username ,$password,$dbname);
+$conn = new mysqli($servername,$username,$password,$dbname);
 
 // Check connection
 if ($conn -> connect_errno) {
